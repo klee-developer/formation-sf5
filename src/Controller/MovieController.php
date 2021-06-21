@@ -9,33 +9,40 @@ use Symfony\Component\Routing\Annotation\Route;
 class MovieController extends AbstractController
 {
     /**
+     * Movie details
      * @Route("/movie/{id}", name="movie", requirements={"id"="\d+"}, methods={"GET"})
      */
-    public function index($id): Response
+    public function movieDetails($id): Response
     {
-        return new Response('Hello ' . $id, 200);
-//        return $this->json([
-//            'message' => 'Welcome to your new controller!',
-//            'path' => 'src/Constroller/MovieController.php'
-//        ]);
+        return $this->render('movie/details.html.twig', [
+            'id' => $id,
+        ]);
     }
 
     /**
+     * Top rated
      * @Route("/movie/top-rated")
      */
-    public function index2(): Response
+    public function movieTopRated(): Response
     {
-        return new Response('Top rated page');
+        return $this->render('movie/top-rated.html.twig');
     }
 
     /**
-     * Avec template
-     * @Route("/movie", name="movie")
+     * Genres
+     * @Route("/movie/genres")
      */
-    public function index3(): Response
+    public function movieGenres(): Response
     {
-        return $this->render('movie/index.html.twig', [
-            'controller_name' => 'MovieController template',
-        ]);
+        return $this->render('movie/genres.html.twig');
+    }
+
+    /**
+     * Top rated
+     * @Route("/movie/latest")
+     */
+    public function movieLatest(): Response
+    {
+        return $this->render('movie/latest.html.twig');
     }
 }
