@@ -7,10 +7,18 @@
 **Fini virtual box et l'hyper V, vous pouvez désormais activer le tout à fait viable WSL2 sur votre windows**
 
 En résumé, vérifiez que Windows est à jour, ouvrez le terminal de commande (CMD) en admin windows puis :
-* i.	Tapez : dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-* ii.	Tapez : dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-* iii.	Téléchargez et installez à la main : https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
-* iv.	Tapez : wsl --set-default-version 2
+* i.	Tapez : 
+  
+  ``dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart``
+* ii.	Ensuite :
+  
+  ``dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart``
+* iii.	Téléchargez et installez à la main : 
+  https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
+  
+* iv.	Et enfin : 
+  
+  ``wsl --set-default-version 2``
 
 *(ce qui correspond aux step 1 à 5 de https://docs.microsoft.com/en-us/windows/wsl/install-win10)*
 
@@ -31,8 +39,10 @@ Ensuite spécifiez la distribution à laquelle vous souhaitez intégrer docker f
 * Histoire d’être sereins, redémarrez le pc puis lancez docker windows
 * Lancez ensuite le shell Ubuntu depuis votre pc, vous devriez être connecté en tant que root@NOMDEVOTREPC dans le /home fournit par le docker for windows
 * Installez Docksal : 
-DOCKER_NATIVE=1 bash <(curl -fsSL https://get.docksal.io)
-* Lancez les confs suivantes : 
+
+  ``DOCKER_NATIVE=1 bash <(curl -fsSL https://get.docksal.io)``
+
+* Et lancez les confs suivantes : 
 ```
 fin config set --global DOCKSAL_VHOST_PROXY_IP="0.0.0.0"
 fin system reset
