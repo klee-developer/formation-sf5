@@ -9,10 +9,22 @@ use Symfony\Component\Routing\Annotation\Route;
 class MovieController extends AbstractController
 {
     /**
-     * @Route("/movie/{id}", name="movie")
+     * @Route("/movie/{id}", name="movie", requirements={"id"="\d+"}, methods={"POST"})
      */
     public function index($id): Response
     {
-        return new Response('Hello' . $id);
+        return new Response('Hello ' . $id, 200);
+//        return $this->json([
+//            'message' => 'Welcome to your new controller!',
+//            'path' => 'src/Constroller/MovieController.php'
+//        ]);
+    }
+
+    /**
+     * @Route("/movie/top-rated")
+     */
+    public function index2($id): Response
+    {
+        return new Response('Top rated page');
     }
 }
