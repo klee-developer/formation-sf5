@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MovieController extends AbstractController
 {
     /**
-     * @Route("/movie/{id}", name="movie", requirements={"id"="\d+"}, methods={"POST"})
+     * @Route("/movie/{id}", name="movie", requirements={"id"="\d+"}, methods={"GET"})
      */
     public function index($id): Response
     {
@@ -23,8 +23,19 @@ class MovieController extends AbstractController
     /**
      * @Route("/movie/top-rated")
      */
-    public function index2($id): Response
+    public function index2(): Response
     {
         return new Response('Top rated page');
+    }
+
+    /**
+     * Avec template
+     * @Route("/movie", name="movie")
+     */
+    public function index3(): Response
+    {
+        return $this->render('movie/index.html.twig', [
+            'controller_name' => 'MovieController template',
+        ]);
     }
 }
