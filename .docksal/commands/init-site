@@ -44,8 +44,20 @@ composer_install ()
 
 install_items ()
 {
+  echo '============'
+  echo "* Install composer"
 	composer_install
+
+	echo '============'
+  echo "* Define .envs"
 	copy_settings_file ${PROJECT_ROOT}/.docksal/env_docksal ${PROJECT_ROOT}/.env
+
+  echo '============'
+  echo "* Install symfony cli"
+	(
+	sudo wget https://get.symfony.com/cli/installer -O - | bash
+  sudo mv ~/.symfony/bin/symfony /usr/local/bin/symfony
+	)
 }
 #-------------------------- END: Functions --------------------------------
 
