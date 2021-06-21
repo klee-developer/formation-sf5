@@ -3,13 +3,16 @@
 # Configuration de VM locale
 
 ## 1.	Pré-requis :
-### a.	Activez WSL2 sur votre windows (step 1 à 5 de https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+### a.	Activation du WSL2
+**Fini virtual box et l'hyper V, vous pouvez désormais activer le tout à fait viable WSL2 sur votre windows**
 
 En résumé, vérifiez que Windows est à jour, ouvrez le terminal de commande (CMD) en admin windows puis :
 * i.	Tapez : dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 * ii.	Tapez : dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 * iii.	Téléchargez et installez à la main : https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
 * iv.	Tapez : wsl --set-default-version 2
+
+*(ce qui correspond aux step 1 à 5 de https://docs.microsoft.com/en-us/windows/wsl/install-win10)*
 
 ### b.	Installez l'app Ubuntu depuis le store
 Fermez le terminal de windows définitivement, et installez maintenant l’app Ubuntu depuis le Windows Store ( https://www.microsoft.com/en-us/p/ubuntu-1804-lts/9n9tngvndl3q?activetab=pivot:overviewtab ), cliquez sur « non merci » dans la popup lors du dl, il se lancera quand même
@@ -46,7 +49,7 @@ Partie projet Symfony sous Docksal
     
 **Pensez à versionner votre projet**
 
-# Utiliser le projet Docksal
+## 4. Utiliser le projet Docksal
 
 Pour aller plus loin dans votre exploration de Docksal :
 Quick tips :
