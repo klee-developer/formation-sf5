@@ -12,7 +12,7 @@ class MovieController extends AbstractController
 {
     /**
      * Movie details
-     * @Route("/movie/{id}", name="movie", requirements={"id"="\d+"}, methods={"GET"})
+     * @Route("/movie/{id}", name="movie", requirements={"id"="\d+"}, defaults={"id": 1})
      */
     public function movieDetails($id, EntityManagerInterface $entityManager): Response
     {
