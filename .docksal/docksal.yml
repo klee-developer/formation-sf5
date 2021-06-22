@@ -19,9 +19,8 @@ services:
 
   # CLI
   cli:
-    extends:
-      file: ${HOME}/.docksal/stacks/services.yml
-      service: cli
+    image: ${COMPOSE_PROJECT_NAME_SAFE}_cli
+    build: services/cli
 
   # Mail
   mail:

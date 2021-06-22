@@ -1,4 +1,8 @@
+# Ignore docksal local config.
+.docksal/docksal-local.env
+.docksal/docksal-local.yml
 
+.idea/
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
