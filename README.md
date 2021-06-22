@@ -27,7 +27,7 @@ Fermez le terminal de windows définitivement, et installez maintenant l’app U
 
 ## 2.	Docker for windows :
 ### a.	Installation
-Téléchargez et installez le : https://www.microsoft.com/en-us/p/ubuntu-1804-lts/9n9tngvndl3q?activetab=pivot:overviewtab (si vous ne l’avez pas déjà)
+Téléchargez et installez le : https://www.docker.com/products/docker-desktop (si vous ne l’avez pas déjà)
 
 ### b. Exposer le daemon
 Dans Settings > Général cochez : Expose daemon on localhost2375 without TLS et cliquez sur Apply & restart
