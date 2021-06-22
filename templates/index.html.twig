@@ -45,7 +45,7 @@
                             <div class="card-body">
                                 <p class="font-weight-bold">{{ movie.title }} <span class="text-muted">({{ movie.releaseDate|date('Y') }})</span> <small>- Christopher Nolan</small></p>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <a href="{{ path('app_movie_details', {id: movie.id}) }}" class="btn btn-sm btn-dark" title="View in details">View</a>
+                                    <a href="{{ path('movie', {id: movie.id}) }}" class="btn btn-sm btn-dark" title="View in details">View</a>
                                     <small class="text-success"><i class="fas fa-clock"></i> 113 mins</small>
                                 </div>
                             </div>
