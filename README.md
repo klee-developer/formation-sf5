@@ -46,8 +46,6 @@ Ensuite spécifiez la distribution à laquelle vous souhaitez intégrer docker f
 ```
 fin config set --global DOCKSAL_VHOST_PROXY_IP="0.0.0.0"
 fin system reset
-sudo firewall-cmd --permanent --zone=public --add-service=dns
-sudo firewall-cmd --reload
 ```
 
 * Les fichiers de votre VM sont disponibles depuis votre explorateur windows au chemin : \\wsl$\Ubuntu-18.04\home
