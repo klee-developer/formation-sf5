@@ -29,6 +29,16 @@ class Review
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    private $rating;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $content;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -54,6 +64,30 @@ class Review
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getRating(): ?int
+    {
+        return $this->rating;
+    }
+
+    public function setRating(int $rating): self
+    {
+        $this->rating = $rating;
+
+        return $this;
+    }
+
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    public function setContent(?string $content): self
+    {
+        $this->content = $content;
 
         return $this;
     }
