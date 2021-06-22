@@ -16,9 +16,9 @@ class MovieController extends AbstractController
      */
     public function movieDetails($id, EntityManagerInterface $entityManager): Response
     {
-        $entityManager->getRepository(Movie::class)->findOneBy(['id' => $id]);
+        $movie = $entityManager->getRepository(Movie::class)->findOneBy(['id' => $id]);
         return $this->render('movie/details.html.twig', [
-            'movie' => $entityManager,
+            'movie' => $movie,
         ]);
     }
 
