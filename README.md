@@ -70,4 +70,6 @@ Quick tips :
 
 **Utiliser NodejS** : ```fin run npm COMMANDE_NPM (globalement, run permet d’executer des commandes dans le CLI)```
 
-**Entrer dans le container CLI** : ```fin bash```
+**Utiliser PhpUnit** : ```fin phpunit```
+
+**Entrer dans le container CLI directement pour taper ses commandes à la main (non recommandé en terme de BP)** : ```fin bash```
