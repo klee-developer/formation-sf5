@@ -14,6 +14,7 @@ class MovieControllerTest extends WebTestCase
         $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'Incepion');
 
-        $this->assertEquals(0, $crawler->filter('.row.p-sm-5')->count());
+        $reviewSelector = '.row.p-sm-5';
+        $this->assertEquals(0, $crawler->filter($reviewSelector)->count());
     }
 }
