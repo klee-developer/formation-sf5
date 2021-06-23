@@ -9,12 +9,15 @@ class MovieControllerTest extends WebTestCase
     public function testSomething(): void
     {
         $client = static::createClient();
-        $crawler= $client->request('GET', 'movie/22');
+        $crawler= $client->request('GET', 'movie/1');
 
+        // page is accessible
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('h1', 'Incepion');
 
-        $reviewSelector = '.row.p-sm-5';
-        $this->assertEquals(0, $crawler->filter($reviewSelector)->count());
+        // h1 equals
+        $this->assertSelectorTextContains('h1', 'Memento');
+
+        $reviewSelector = '.row.p-sm-5'; // Expect 1 of this
+        $this->assertEquals(1, $crawler->filter($reviewSelector)->count());
     }
 }
