@@ -73,3 +73,16 @@ Quick tips :
 **Utiliser PhpUnit** : ```fin phpunit```
 
 **Entrer dans le container CLI directement pour taper ses commandes à la main (non recommandé en terme de BP)** : ```fin bash```
+
+## 5. Erreurs communes rencontrées
+
+Voici quelques erreurs que nous avons eu à traiter :
+
+* **Erreur au démarrage du projet Docksal :** 
+  * **Cas 1** : Le projet ne démarre pas :
+    * Lors du premier usage du projet, pensez à faire un ``fin init``
+    * Vous avez déjà démarré le projet avant, tentez un ``fin system start`` pour démarrer les 3 containers système de Docksal (DNS, vhost-proxy, ssh-agent)
+  * **Cas 2** : Le container DNS ne démarre pas ce qui résulte en ``Error 500 - Ports are not available: listen tcp 192.168.64.100:34 can't bind on the specified endpoint"`` 
+    Vérifiez si vous avez des mises à jour Windows, dans tous les cas redémarrez le pc et réessayez ensuite
+* **Le projet semble démarré mais j'ai une timeout en accédant à son url sur le navigateur**
+  * Ajoutez l'url du projet pointant vers 127.0.0.1 dans votre fichier **hosts**
