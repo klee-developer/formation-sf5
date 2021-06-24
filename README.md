@@ -1,4 +1,4 @@
-# Formation Symfony 5 Klee - Stack docksal
+# Formation Symfony 5 Klee - Stack docksal et WSL2
 
 # Configuration de VM locale
 
