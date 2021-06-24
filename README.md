@@ -86,3 +86,9 @@ Voici quelques erreurs que nous avons eu à traiter :
     Vérifiez si vous avez des mises à jour Windows, dans tous les cas redémarrez le pc et réessayez ensuite
 * **Le projet semble démarré mais j'ai une timeout en accédant à son url sur le navigateur**
   * Ajoutez l'url du projet pointant vers 127.0.0.1 dans votre fichier **hosts**
+ 
+ ## 6. Ressources complémentaires
+ 
+ https://symfonycasts.com/
+ https://symfony.com/doc/current/the-fast-track/en/index.html
+ 
