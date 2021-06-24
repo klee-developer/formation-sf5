@@ -1,6 +1,6 @@
 security:
     encoders:
-        App\Entity\Person:
+        App\Entity\User:
             algorithm: auto
 
     # https://symfony.com/doc/current/security/experimental_authenticators.html
