@@ -8,6 +8,8 @@ use Symfony\Component\Form\Extension\Core\Type;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+
 class SecurityController extends AbstractController
 {
     /**
@@ -39,18 +41,22 @@ class SecurityController extends AbstractController
      * Register
      * @Route("/register")
      */
-    public function register(EntityManagerInterface $entityManager, Request $request): Response
+    public function register(EntityManagerInterface $entityManager, Request $request, UserPasswordHasherInterface $userPasswordHasher): Response
     {
         $form = $this->createForm(RegisterType::class);
         $form->add('register', Type\SubmitType::class);
 
+        // Gestion de la requête
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid() && $form->get('cgv')->getData()) {
             $user = $form->getData();
+
+            // Hash du pass
+            $password = $userPasswordHasher->hashPassword($user, $user->getPassword());
+            $user->setPassword($password);
             $entityManager->persist($user);
             $entityManager->flush();
-            dump($form->getData());
         }
 
         return $this->render('security/register.html.twig', [
