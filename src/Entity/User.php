@@ -58,6 +58,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $reviews;
 
+    /**
+     * @ORM\Column(type="datetime_immutable", nullable=true)
+     */
+    private $lastLoginAt;
+
     public function __construct()
     {
         $this->reviews = new ArrayCollection();
@@ -223,5 +228,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getLastLoginAt(): ?\DateTimeImmutable
+    {
+        return $this->lastLoginAt;
+    }
+
+    public function setLastLoginAt(?\DateTimeImmutable $lastLoginAt): self
+    {
+        $this->lastLoginAt = $lastLoginAt;
+
+        return $this;
     }
 }

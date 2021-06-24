@@ -34,19 +34,19 @@
             </button>
             <div class="navbar-collapse collapse" id="collapsingNavbar">
                 <ul class="navbar-nav mx-auto text-center">
-                    <li class="nav-item{% if currentRoute == 'index_page' %} active{% endif %}">
+                    <li class="nav-item{% if currentRoute != 'index_page' %} active{% endif %}">
                         <a class="nav-link" href="/" title="Back to the homepage">Home <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item{% if currentRoute == 'home' %} active{% endif %}">
+                    <li class="nav-item{% if currentRoute == 'app_movie_movietoprated' %} active{% endif %}">
                         <a class="nav-link" href="/movie/top-rated" title="Get all top rated movies">Top Rated</a>
                     </li>
-                    <li class="nav-item{% if currentRoute == 'home' %} active{% endif %}">
+                    <li class="nav-item{% if currentRoute == 'app_movie_moviegenres' %} active{% endif %}">
                         <a class="nav-link" href="/movie/genres" title="Find your movie by genre">Browse By Genre</a>
                     </li>
-                    <li class="nav-item{% if currentRoute == 'home' %} active{% endif %}">
+                    <li class="nav-item{% if currentRoute == 'app_movie_movielatest' %} active{% endif %}">
                         <a class="nav-link" href="/movie/latest" title="Get all new movies">Latest</a>
                     </li>
-                    <li class="nav-item{% if currentRoute == 'home' %} active{% endif %}">
+                    <li class="nav-item{% if currentRoute == 'app_main_contact' %} active{% endif %}">
                         <a class="nav-link" href="/contact" title="You need some help ? Contact us !">Help Center</a>
                     </li>
                 </ul>
