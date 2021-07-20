@@ -51,7 +51,7 @@ fin system reset
 * Les fichiers de votre VM sont disponibles depuis votre explorateur windows au chemin : \\wsl$\Ubuntu-18.04\home
   Partie projet Symfony sous Docksal
     - Récupérez mon projet et collez le dans votre **/home** :
-    - Allez dans le repo /home/formation, tapez ``fin init`` puis ``fin p start``
+    - Allez dans le repo /home/formation, tapez ``fin init`` (si le site n'est pas accessible à la fin du fin init faites ``fin p start``)
     - Accédez à l’url du projet
 
 
