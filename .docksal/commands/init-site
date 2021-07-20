@@ -39,8 +39,8 @@ copy_settings_file()
 composer_install ()
 {
 	cd $PROJECT_ROOT
-	composer --no-interaction install
-	composer self-update --2
+  sudo composer --no-interaction install
+	sudo composer self-update --2
 }
 
 install_items ()
@@ -64,7 +64,7 @@ install_items ()
 
 #-------------------------- Execution --------------------------------
 
-mkdir ~/tmp
+#mkdir ~/tmp
 install_items
 # Project initialization steps
 #-------------------------- END: Execution --------------------------------
