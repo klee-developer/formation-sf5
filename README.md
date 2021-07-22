@@ -65,7 +65,9 @@ Les fichiers de votre VM sont disponibles depuis votre explorateur windows au ch
 ## | Lancer le projet Docksal
 Partie projet Symfony sous Docksal
 - Récupérez mon projet (clonez le par exemple) et collez le dans votre **/home** (ou racine de vhost) :
-- Allez dans le repo cloné *"/formation-sf5"*, tapez ``fin init`` 
+- Allez dans le repo cloné *"/formation-sf5"*, tapez ``fin init``
+- Changez la valeur de DATABASE_URL dans le fichier **.env** (racine) ``DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"``
+- Faites un ``fin p restart``
 - Accédez à l’url du projet
 
 
@@ -100,5 +102,7 @@ Voici quelques erreurs que nous avons eu à traiter :
       Vérifiez si vous avez des mises à jour Windows, dans tous les cas redémarrez le pc et réessayez ensuite
 * **Le projet semble démarré mais j'ai une timeout en accédant à son url sur le navigateur**
     * Ajoutez l'url du projet pointant vers 127.0.0.1 dans votre fichier **hosts**
+* **Soucis de connexion à la DB :**
+    * Vérifiez que vous avez bien ``DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"`` comme valeur dans votre **.env** (racine)
     
 En cas de besoin n'hésitez pas à solliciter l'équipe sur Teams.
