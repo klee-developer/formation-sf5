@@ -1,9 +1,19 @@
 # Formation Symfony 5 Klee - Stack docksal et WSL2
 
-# Configuration de VM locale
+# Guide d'installation & d'utilisation
 
-## 1.	Pré-requis :
-### a.	Activation du WSL2
+## - Pré-requis -
+
+Si vous disposez déjà d'un environnement sous une distribution Linux avec Docksal d'installé, vous pouvez passer directement à la partie **| Lancer le projet Docksal** ci-dessous. 
+
+Sinon suivez chaque étape pour paramétrer votre VM en WSL2 une fois ceci fait, vous n'aurez plus à le faire pour récupérer et lancer d'autres projets sous Docksal à l'avenir. Il vous suffira de les cloner à côté de celui-ci. 
+
+En cas de pépin n'hésitez pas à solliciter l'équipe sur Teams.
+
+## | Installation d'une VM locale en WSL2 + Docker Desktop + Docksal
+
+### 1. WSL2
+#### a.	Activation du WSL2
 **Fini virtual box et l'hyper V, vous pouvez désormais activer le tout à fait viable WSL2 sur votre windows**
 
 En résumé, vérifiez que Windows est à jour, ouvrez le terminal de commande (CMD) en admin windows puis :
@@ -22,20 +32,22 @@ En résumé, vérifiez que Windows est à jour, ouvrez le terminal de commande (
 
 *(ce qui correspond aux step 1 à 5 de https://docs.microsoft.com/en-us/windows/wsl/install-win10)*
 
-### b.	Installez l'app Ubuntu depuis le store
+#### b.	Installez l'app Ubuntu depuis le store
 Fermez le terminal de windows définitivement, et installez maintenant l’app Ubuntu depuis le Windows Store ( https://www.microsoft.com/en-us/p/ubuntu-1804-lts/9n9tngvndl3q?activetab=pivot:overviewtab ), cliquez sur « non merci » dans la popup lors du dl, il se lancera quand même
 
-## 2.	Docker for windows :
-### a.	Installation
+### 2.	Docker for windows :
+#### a.	Installation
 Téléchargez et installez le : https://www.docker.com/products/docker-desktop (si vous ne l’avez pas déjà)
 
-### b. Exposer le daemon
+#### b. Exposer le daemon
 Dans Settings > Général cochez : Expose daemon on localhost2375 without TLS et cliquez sur Apply & restart
 
-### c. Sélectionnez le storage
+#### c. Sélectionnez le storage
 Ensuite spécifiez la distribution à laquelle vous souhaitez intégrer docker for windows (cochez ubuntu) :
 
-## 3.	Paramétrer la VM
+### 3.	Paramétrer la VM
+
+#### a. Installation de Docksal sur votre VM locale
 * Histoire d’être sereins, redémarrez le pc puis lancez docker windows
 * Lancez ensuite le shell Ubuntu depuis votre pc, vous devriez être connecté en tant que root@NOMDEVOTREPC dans le /home fournit par le docker for windows
 * Installez Docksal :
@@ -48,16 +60,18 @@ fin config set --global DOCKSAL_VHOST_PROXY_IP="0.0.0.0"
 fin system reset
 ```
 
-* Les fichiers de votre VM sont disponibles depuis votre explorateur windows au chemin : \\wsl$\Ubuntu-18.04\home
-  Partie projet Symfony sous Docksal
-    - Récupérez mon projet et collez le dans votre **/home** :
-    - Allez dans le repo /home/formation, tapez ``fin init`` puis ``fin p start``
-    - Accédez à l’url du projet
+Les fichiers de votre VM sont disponibles depuis votre explorateur windows au chemin : \\wsl$\Ubuntu-18.04\home
+
+## | Lancer le projet Docksal
+Partie projet Symfony sous Docksal
+- Récupérez mon projet (clonez le par exemple) et collez le dans votre **/home** (ou racine de vhost) :
+- Allez dans le repo cloné *"/formation-sf5"*, tapez ``fin init`` 
+- Accédez à l’url du projet
 
 
-**Pensez à versionner votre projet**
+**Pensez à versionner votre projet dans votre propre répertoire distant**
 
-## 4. Utiliser le projet Docksal
+## | Utiliser le projet Docksal
 
 Pour aller plus loin dans votre exploration de Docksal :
 Quick tips :
@@ -74,15 +88,17 @@ Quick tips :
 
 **Entrer dans le container CLI directement pour taper ses commandes à la main (non recommandé en terme de BP)** : ```fin bash```
 
-## 5. Erreurs communes rencontrées
+## - En cas d'erreur -
 
 Voici quelques erreurs que nous avons eu à traiter :
 
 * **Erreur au démarrage du projet Docksal :**
     * **Cas 1** : Le projet ne démarre pas :
-        * Lors du premier usage du projet, pensez à faire un ``fin init``
+        * Lors du premier usage du projet, pensez à faire un ``fin init`` depuis le répertoire cloné, si suite à celui-ci le site n'est pad accessible, faites y un ``fin p start``
         * Vous avez déjà démarré le projet avant, tentez un ``fin system start`` pour démarrer les 3 containers système de Docksal (DNS, vhost-proxy, ssh-agent)
     * **Cas 2** : Le container DNS ne démarre pas ce qui résulte en ``Error 500 - Ports are not available: listen tcp 192.168.64.100:34 can't bind on the specified endpoint"``
       Vérifiez si vous avez des mises à jour Windows, dans tous les cas redémarrez le pc et réessayez ensuite
 * **Le projet semble démarré mais j'ai une timeout en accédant à son url sur le navigateur**
     * Ajoutez l'url du projet pointant vers 127.0.0.1 dans votre fichier **hosts**
+    
+En cas de besoin n'hésitez pas à solliciter l'équipe sur Teams.
