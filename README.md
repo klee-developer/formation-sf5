@@ -54,7 +54,7 @@ Ensuite spécifiez la distribution à laquelle vous souhaitez intégrer docker f
 * Lancez ensuite le shell Ubuntu depuis votre pc, vous devriez être connecté en tant que root@NOMDEVOTREPC dans le /home fournit par le docker for windows
 * Installez Docksal :
 
-  ``DOCKER_NATIVE=1 bash <(curl -fsSL https://get.docksal.io)``
+  ``DOCKSAL_VERSION=v1.15.1 DOCKER_NATIVE=1 bash <(curl -fsSL https://get.docksal.io)``
 
 * Et lancez les confs suivantes :
 ```
