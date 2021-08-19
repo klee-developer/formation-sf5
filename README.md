@@ -39,6 +39,8 @@ Fermez le terminal de windows définitivement, et installez maintenant l’app U
 #### a.	Installation
 Téléchargez et installez le : https://www.docker.com/products/docker-desktop (si vous ne l’avez pas déjà)
 
+**Si vous l'avez déjà, assurez vous qu'il soit à jour dans sa dernière version**
+
 #### b. Exposer le daemon
 Dans Settings > Général cochez : Expose daemon on localhost2375 without TLS et cliquez sur Apply & restart
 
