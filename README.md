@@ -54,11 +54,12 @@ Ensuite spécifiez la distribution à laquelle vous souhaitez intégrer docker f
 * Lancez ensuite le shell Ubuntu depuis votre pc, vous devriez être connecté en tant que root@NOMDEVOTREPC dans le /home fournit par le docker for windows
 * Installez Docksal :
 
-  ``DOCKSAL_VERSION=v1.15.1 DOCKER_NATIVE=1 bash <(curl -fsSL https://get.docksal.io)``
+  ``DOCKER_NATIVE=1 bash <(curl -fsSL https://get.docksal.io)``
 
 * Et lancez les confs suivantes :
 ```
 fin config set --global DOCKSAL_VHOST_PROXY_IP="0.0.0.0"
+fin config set --global DOCKSAL_DNS_UPSTREAM="IPv4_LOCALE_DE_VOTRE_PC" (Panneau de configuration Windows > Connexions réseau > Propriétés de vEthernet (WSL) > Protocole Internet version 4 (Adresse IP))
 fin system reset
 ```
 
@@ -96,15 +97,28 @@ Quick tips :
 
 Voici quelques erreurs que nous avons eu à traiter :
 
-* **Erreur au démarrage du projet Docksal :**
-    * **Cas 1** : Le projet ne démarre pas :
-        * Lors du premier usage du projet, pensez à faire un ``fin init`` depuis le répertoire cloné, si suite à celui-ci le site n'est pad accessible, faites y un ``fin p start``
-        * Vous avez déjà démarré le projet avant, tentez un ``fin system start`` pour démarrer les 3 containers système de Docksal (DNS, vhost-proxy, ssh-agent)
-    * **Cas 2** : Le container DNS ne démarre pas ce qui résulte en ``Error 500 - Ports are not available: listen tcp 192.168.64.100:34 can't bind on the specified endpoint"``
-      Vérifiez si vous avez des mises à jour Windows, dans tous les cas redémarrez le pc et réessayez ensuite
-* **Le projet semble démarré mais j'ai une timeout en accédant à son url sur le navigateur**
-    * Ajoutez l'url du projet pointant vers 127.0.0.1 dans votre fichier **hosts**
-* **Soucis de connexion à la DB :**
-    * Vérifiez que vous avez bien ``DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"`` comme valeur dans votre **.env** (racine)
-    
-En cas de besoin n'hésitez pas à solliciter l'équipe sur Teams.
+### Erreur au démarrage du projet Docksal :  
+  #### Avez-vous fait un 'fin init' ?
+  Lors du premier usage du projet, pensez à faire un ``fin init`` depuis le répertoire cloné, si suite à celui-ci le site n'est pad accessible, faites y un ``fin p start``
+
+  #### Les container système de Docksal sont-ils lancés ?
+  Vous aviez déjà démarré le projet avant mais ne pouvez plus y accéder, tentez un ``fin system start`` pour démarrer les 3 containers système de Docksal (DNS, vhost-proxy, ssh-agent)
+  et un ``fin p start`` depuis la racine du projet pour démarrer le site 
+
+  #### Erreur lors du "composer install" pendant le "fin init"
+  Lors du "fin init" le projet démarre mais quand il fait le composer install il n'arrive pas à télécharger les packages. 
+  Faites un ``fin config set --global DOCKSAL_DNS_UPSTREAM="IPv4_LOCALE_DE_VOTRE_PC"`` puis ``fin system reset``
+  
+  #### Le container DNS ne démarre pas 
+  Ce qui résulte en ``Error 500 - Ports are not available: listen tcp 192.168.64.100:34 can't bind on the specified endpoint"``
+  
+  Vérifiez si vous avez des mises à jour Windows, dans tous les cas redémarrez le pc et réessayez ensuite
+
+  ### Le projet semble démarré mais j'ai une timeout en accédant à son url sur le navigateur
+  Ajoutez l'url du projet (de base formation-sf5.docksal.site) pointant vers 127.0.0.1 dans votre fichier **hosts**
+
+  ### Soucis de connexion à la DB
+  Vérifiez que vous avez bien ``DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"`` comme valeur dans votre **.env** (racine)
+
+
+**En cas de besoin n'hésitez pas à solliciter l'équipe sur Teams.**
