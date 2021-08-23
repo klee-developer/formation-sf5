@@ -106,7 +106,10 @@ Voici quelques erreurs que nous avons eu à traiter :
   et un ``fin p start`` depuis la racine du projet pour démarrer le site 
 
   #### Erreur lors du "composer install" pendant le "fin init"
+  *"The "https://getcomposer.ord/versions" file could not be downloaded: php_network_getaddresses"*
+  
   Lors du "fin init" le projet démarre mais quand il fait le composer install il n'arrive pas à télécharger les packages. 
+  
   Faites un ``fin config set --global DOCKSAL_DNS_UPSTREAM="IPv4_LOCALE_DE_VOTRE_PC"`` puis ``fin system reset``
   
   #### Le container DNS ne démarre pas 
